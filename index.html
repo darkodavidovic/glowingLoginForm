@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Glowing Login Form</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background: black url(images/bg.jpg);
+        background-position: center;
+        color: white;
+        font-family: monospace;
+    }
+    .login {
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        background:transparent;
+        width: 700px;
+        height: 300px;
+        border: 2px solid aqua;
+        border-radius: 5px;
+        box-shadow: inset 0 0 15px 2px aqua, 0 0 15px 2px aqua;
+        transition: 0.2s linear;
+    }
+    @media only screen and (max-width: 768px){
+        .login{
+            left: 0px;
+            transform: translateX(0%);
+        }
+    }
+    .login:hover {
+        width: 705px;
+        height: 305px;
+    }
+
+    .separator {
+        position: absolute;
+        width: 2px;
+        left: 400px;
+        height: 100%;
+        border: none;
+        transform: rotate(180deg);
+        box-shadow: inset 0 0 15px 2px aqua, 0 0 15px 2px aqua;
+    }
+
+    .left {
+        float: left;
+        padding: 15px;
+        width: 400px;
+    }
+
+    form {
+        width: 370px;
+        text-align: center;
+    }
+    form span{
+        color: rgb(189, 187, 187);
+        margin-left: 190px;
+        cursor: pointer;
+    }
+
+    .input{
+        margin-top: 15px;
+        color: rgb(161, 161, 161);
+        font-size: 15px;
+        font-style: italic;
+        padding: 10px 10px 10px 30px;
+        width: 95%;
+        height: 40px;
+        border: 1px solid black;
+    }
+    .username {
+        margin-top: 35px;
+        background: rgba(20,20,20,.7) url(images/boy-icon.png) no-repeat 5px 10px;
+        background-size: 20px 18px;
+    }
+    .password {
+        background: rgba(20,20,20,.7) url(images/psw-icon.png) no-repeat 5px 10px;
+        background-size: 20px 20px;
+    }
+    .formCheckBox{
+        margin: 30px auto auto -300px;
+        box-shadow: 0 0 6px 1px aqua;
+        cursor: pointer;
+    }
+    .rememberMe{
+        position: absolute;
+        margin: 28px auto auto 5px;
+    }
+    .submitBtn{
+        position: absolute;
+        width: 120px;
+        height: 35px;
+        margin: -30px auto auto 55px;
+        background-color: red;
+        border: 1px solid white;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px; 
+        font-weight: bold;
+        box-shadow: 0 0 13px 3px red;
+        cursor: pointer;
+        transition: .1s linear;
+    }
+    .submitBtn:hover{
+        box-shadow: 0 0 13px 3px aqua;
+        width: 122px;
+        height: 37px;
+    }
+
+    .lock-icon {
+        position: relative;
+        width: 30px;
+        height: 25px;
+        filter: drop-shadow(0 0 5px rgb(244, 245, 245));
+    }
+
+    .login-title {
+        position: absolute;
+        margin-top: 2px;
+        margin-left: 5px;
+        font-size: 20px;
+    }
+
+    .right {
+        float: right;
+        width: 295px;
+        padding: 15px;
+        margin-top: 65px;
+        text-align: center;
+    }
+    .signInWith{
+        text-align: left;
+        margin-bottom: 10px;
+        padding-left: 65px;
+        width: 95%;
+        height: 40px;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 4px;
+        color: white;
+        box-shadow: 0 0 10px 2px aqua;
+        cursor: pointer;
+        transition: .2s linear;
+    }
+    .twitterIcon{
+        background:url(images/twitter-icon.png) no-repeat 10px 10px;
+        background-size: 20px 20px;
+    }
+    .facebookIcon{
+        background:url(images/facebook-icon.png) no-repeat 10px 10px;
+        background-size: 20px 20px;
+    }
+    .gitIcon{
+        background:url(images/github-icon.png) no-repeat 10px 9px;
+        background-size: 20px 20px;
+    }
+    .linkedinIcon{
+        background: url(images/linkedin-icon.png) no-repeat 10px 10px;
+        background-size: 20px 18px;
+    }
+
+    .twitterIcon:hover{
+        box-shadow: inset 0 0 15px 2px red, 0 0 10px 2px red;
+        width: 98%;
+        font-size: 14px;
+    }
+    .facebookIcon:hover{
+        box-shadow: inset 0 0 15px 2px red, 0 0 10px 2px red;
+        width: 98%;
+        font-size: 14px;
+    }
+    .gitIcon:hover{
+        box-shadow: inset 0 0 15px 2px red, 0 0 10px 2px red;
+        width: 98%;
+        font-size: 14px;
+    }
+    .linkedinIcon:hover{
+        box-shadow: inset 0 0 15px 2px red, 0 0 10px 2px red;
+        width: 98%;
+        font-size: 14px;
+    }
+</style>
+
+<body>
+        <h3>View source in project Git: <a href="https://github.com/darkodavidovic/glowingLoginForm/">HERE</a></h3>
+        <div class="login">
+            <aside class="left">
+                <img class="lock-icon" src="images/lock-icon.png">
+                <span class="login-title">Login Form</span>
+                <form action="" method="POST">
+                    <input class="username input" type="text" placeholder="User or Email..."><br />
+                    <span>Forgot your username?</span><br />
+                    <input class="password input" type="password" placeholder="Password..."><br />
+                    <span>Forgot your password?</span><br />
+                    <input class="formCheckBox" type="checkbox" name="" id="formCheckBox"> <label class="rememberMe" for="formCheckBox">Remember me</label><br>
+                    <input class="submitBtn" type="submit" value="SIGN-IN NOW">
+                </form>
+            </aside>
+            <hr class="separator">
+            <aside class="right">
+                    <button class="signInWith twitterIcon">Sign in with <strong>Twitter</strong></button><br/>
+                    <button class="signInWith facebookIcon">Sign in with <strong>Facebook</strong></button><br/>
+                    <button class="signInWith gitIcon">Sign in with <strong>GitHub</strong></button><br/>
+                    <button class="signInWith linkedinIcon">Sign in with <strong>Linkedin</strong></button><br/>
+            </aside>
+        </div>
+</body>
+
+</html>
